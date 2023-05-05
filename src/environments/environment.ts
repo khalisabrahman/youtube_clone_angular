@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_URL: 'https://youtube-v31.p.rapidapi.com',
+  API_KEY: '228906f4a3msh04b732610d8239ep15f266jsn964f3d542b77',
+  API_HOST: 'youtube-v31.p.rapidapi.com'
 };
 
 /*

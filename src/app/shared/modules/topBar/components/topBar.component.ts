@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { TopBarService } from 'src/app/shared/services/topBar.service';
 
 @Component({
   selector: 'yt-topbar',
@@ -9,10 +10,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class TopBarComponent implements OnInit {
   form!:FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private searchSrv: TopBarService) {}
 
   ngOnInit(): void {
     this.initializeForm();
+    this.searchSrv.getSearchResults().subscribe();
   }
 
   initializeForm() {

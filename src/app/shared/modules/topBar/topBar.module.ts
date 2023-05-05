@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 
 import { TopBarComponent } from 'src/app/shared/modules/topBar/components/topBar.component';
+import { TopBarService } from '../../services/topBar.service'
 
 @NgModule({
   imports: [
@@ -19,5 +20,6 @@ import { TopBarComponent } from 'src/app/shared/modules/topBar/components/topBar
   ],
   declarations: [TopBarComponent],
   exports: [TopBarComponent],
+  providers: [TopBarService]
 })
 export class TopBarModule {}
