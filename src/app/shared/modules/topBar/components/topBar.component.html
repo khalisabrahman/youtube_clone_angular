@@ -1,0 +1,16 @@
+<mat-toolbar class="navbar">
+  <a [routerLink]="['/']">
+    <img
+      src="https://i.ibb.co/s9Qys2j/logo.png"
+      height="45px"
+      alt="youtube angular logo"
+    />
+  </a>
+
+  <span class="spacer"></span>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input type="text" class="search-bar" placeholder="Search..." formControlName="searchTerm"/> 
+    <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> -->
+  </form>
+</mat-toolbar>
