@@ -9,9 +9,11 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { routerReducer } from "@ngrx/router-store";
 
 import { TopBarModule } from './shared/modules/topBar/topBar.module';
 import { environment } from '../environments/environment';
+import { SearchFeedModule } from './searchFeed/searchFeed.module';
 
 
 @NgModule({
@@ -23,8 +25,9 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     HttpClientModule,
     TopBarModule,
+    SearchFeedModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({router: routerReducer}),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })

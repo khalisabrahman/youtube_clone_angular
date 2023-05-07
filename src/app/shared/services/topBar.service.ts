@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
+import { SearchResponseInterface } from 'src/app/searchFeed/types/searchResponse.interface';
 
 const API_URL = environment.API_URL;
 const API_KEY = environment.API_KEY;
@@ -12,11 +13,11 @@ const API_HOST = environment.API_HOST;
 export class TopBarService {
   constructor(private http: HttpClient) {}
 
-  getSearchResults() {
+  getSearchResults(searchTerm: string): Observable<SearchResponseInterface> {
     return this.http
-      .get<any>(`${API_URL}/search`, {
+      .get<SearchResponseInterface>(`${API_URL}/search`, {
         params: {
-          q: 'music',
+          q: searchTerm,
           part: 'snippet',
           regionCode: 'US',
           maxResults: '50',
@@ -27,6 +28,9 @@ export class TopBarService {
           'x-rapidapi-key': API_KEY,
         },
       })
-      .pipe(tap((res) => console.log(res)));
+      .pipe(
+        tap((res) => console.log(res)),
+        map((response) => response)
+      );
   }
 }

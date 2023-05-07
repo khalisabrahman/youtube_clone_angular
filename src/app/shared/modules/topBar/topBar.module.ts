@@ -6,7 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 
-import { TopBarComponent } from 'src/app/shared/modules/topBar/components/topBar.component';
+import { TopBarComponent } from 'src/app/shared/modules/topBar/components/topBar/topBar.component';
 import { TopBarService } from '../../services/topBar.service'
 
 @NgModule({
