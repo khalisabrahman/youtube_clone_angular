@@ -7,36 +7,36 @@ import { Observable, map } from 'rxjs';
   templateUrl: './youtubePlayer.component.html',
 })
 export class YoutubePlayerComponent implements OnInit {
-    apiLoaded = false;
-    videoId$: Observable<string>;
-    videoId: string;
+  apiLoaded = false;
+  videoId$: Observable<string>;
+  videoId: string;
 
-    constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {}
 
-    ngOnInit() {
-        this.loadYoutubeAPI();
-        this.initializeListeners()
-      }
+  ngOnInit() {
+    this.loadYoutubeAPI();
+    this.initializeListeners();
+  }
 
-      loadYoutubeAPI() {
-        if (!this.apiLoaded) {
-            // This code loads the IFrame Player API code asynchronously, according to the instructions at
-            // https://developers.google.com/youtube/iframe_api_reference#Getting_Started
-            const tag = document.createElement('script');
-            tag.src = 'https://www.youtube.com/iframe_api';
-            document.body.appendChild(tag);
-            this.apiLoaded = true;
-          }
-      }
+  loadYoutubeAPI() {
+    if (!this.apiLoaded) {
+      // This code loads the IFrame Player API code asynchronously, according to the instructions at
+      // https://developers.google.com/youtube/iframe_api_reference#Getting_Started
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
+      this.apiLoaded = true;
+    }
+  }
 
-      initializeListeners(): void {
-        this.videoId$ = this.route.paramMap.pipe(
-          map((params: ParamMap) => params.get('videoId'))
-        );
-    
-        // Should you unsubscribe from the queryParamMap Observable? Nope! There’s no need. Angular’s router will manage the subscriptions for you, so this makes it a little bit easier and cleaner for us on the component class.
-        this.videoId$.subscribe((param) => {
-            this.videoId = param
-        });
-      }
+  initializeListeners(): void {
+    this.videoId$ = this.route.paramMap.pipe(
+      map((params: ParamMap) => params.get('videoId'))
+    );
+
+    // Should you unsubscribe from the queryParamMap Observable? Nope! There’s no need. Angular’s router will manage the subscriptions for you, so this makes it a little bit easier and cleaner for us on the component class.
+    this.videoId$.subscribe((param) => {
+      this.videoId = param;
+    });
+  }
 }

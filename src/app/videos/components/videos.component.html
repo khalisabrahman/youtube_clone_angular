@@ -1,4 +1,4 @@
-<div *ngIf="searchResultProps.length; else noData">
+<div *ngIf="searchResultProps.length; else noData" style="display: flex" >
   <div *ngFor="let video of searchResultProps">
     <yt-video [video]="video"></yt-video>
   </div>

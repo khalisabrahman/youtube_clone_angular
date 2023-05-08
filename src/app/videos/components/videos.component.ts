@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class VideosComponent implements OnInit {
   @Input('searchResult') searchResultProps: any;
+  @Input('direction') direction: string = 'row';
   constructor() {}
 
   ngOnInit(): void {
