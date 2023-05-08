@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { TopBarService } from 'src/app/shared/services/topBar.service';
 import { getSearchFeedAction } from 'src/app/searchFeed/store/actions/getSearchFeed.action';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'yt-topbar',
@@ -11,9 +12,14 @@ import { getSearchFeedAction } from 'src/app/searchFeed/store/actions/getSearchF
   styleUrls: ['./topBar.component.scss'],
 })
 export class TopBarComponent implements OnInit {
-  form!:FormGroup;
+  form!: FormGroup;
 
-  constructor(private fb: FormBuilder, private searchSrv: TopBarService, private store: Store) {}
+  constructor(
+    private fb: FormBuilder,
+    private searchSrv: TopBarService,
+    private store: Store,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -21,16 +27,13 @@ export class TopBarComponent implements OnInit {
 
   initializeForm() {
     this.form = this.fb.group({
-      searchTerm: [""]
-    })
+      searchTerm: [''],
+    });
   }
 
   onSubmit(): void {
-    const searchTerm = {
-      searchTerm: this.form.value
-    }
-
-    this.store.dispatch(getSearchFeedAction(searchTerm))
-    // this.searchSrv.getSearchResults('manchester').subscribe();
+    this.router.navigateByUrl(
+      `searchFeed?searchTerm=${this.form.value.searchTerm}`
+    );
   }
 }

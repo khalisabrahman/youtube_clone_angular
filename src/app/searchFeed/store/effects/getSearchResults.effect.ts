@@ -24,16 +24,16 @@ export class GetSearchResultsEffect {
     )
   );
 
-  redirectAfterSubmit$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(getSearchFeedActionSuccess),
-        tap(() => {
-          this.router.navigateByUrl('/searchFeed');
-        })
-      ),
-    { dispatch: false }
-  );
+//   redirectAfterSubmit$ = createEffect(
+//     () =>
+//       this.actions$.pipe(
+//         ofType(getSearchFeedActionSuccess),
+//         tap(() => {
+//           this.router.navigateByUrl('/searchFeed');
+//         })
+//       ),
+//     { dispatch: false }
+//   );
 
   constructor(
     private actions$: Actions,

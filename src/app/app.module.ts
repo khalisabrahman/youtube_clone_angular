@@ -14,6 +14,8 @@ import { routerReducer } from "@ngrx/router-store";
 import { TopBarModule } from './shared/modules/topBar/topBar.module';
 import { environment } from '../environments/environment';
 import { SearchFeedModule } from './searchFeed/searchFeed.module';
+import { VideosModule } from './videos/videos.module';
+import { VideoDetailModule } from './videoDetail/videoDetail.module';
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { SearchFeedModule } from './searchFeed/searchFeed.module';
     TopBarModule,
     SearchFeedModule,
     BrowserAnimationsModule,
+    VideoDetailModule,
     StoreModule.forRoot({router: routerReducer}),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),

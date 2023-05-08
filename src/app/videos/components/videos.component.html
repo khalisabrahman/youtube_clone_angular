@@ -1,0 +1,9 @@
+<div *ngIf="searchResultProps.length; else noData">
+  <div *ngFor="let video of searchResultProps">
+    <yt-video [video]="video"></yt-video>
+  </div>
+</div>
+
+<ng-template #noData>
+  <h1>There are no videos</h1>
+</ng-template>

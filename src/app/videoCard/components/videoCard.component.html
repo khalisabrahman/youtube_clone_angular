@@ -1,0 +1,10 @@
+<a [routerLink]="['/videoDetail', videoProps.id.videoId]">
+  <mat-card>
+    <img mat-card-image src={{videoProps.snippet.thumbnails.high.url}} alt="">
+    <mat-card-content>
+      <p>
+        {{videoProps.snippet.title}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</a>
