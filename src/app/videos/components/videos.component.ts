@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./videos.component.scss'],
 })
 export class VideosComponent implements OnInit {
-  @Input('searchResult') searchResultProps: any;
+  @Input('videos') videosProp: any;
   @Input('direction') direction: string = 'row';
   constructor() {}
 

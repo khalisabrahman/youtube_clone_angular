@@ -1,2 +1,4 @@
-<h1>Feed</h1>
 <yt-sidebar></yt-sidebar>
+<div *ngIf="data$ | async as data">
+    <yt-videos [videos]="data"></yt-videos>
+</div>

@@ -1,5 +1,5 @@
 
 <h4 *ngIf="searchTerm$ | async as searchTerm">Search results for:{{ searchTerm }}</h4>
 <div *ngIf="data$ | async as data">
-    <yt-videos [searchResult]="data"></yt-videos>
+    <yt-videos [videos]="data"></yt-videos>
 </div>
