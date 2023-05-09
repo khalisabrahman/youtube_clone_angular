@@ -34,7 +34,6 @@ export class YoutubePlayerComponent implements OnInit {
       map((params: ParamMap) => params.get('videoId'))
     );
 
-    // Should you unsubscribe from the queryParamMap Observable? Nope! There’s no need. Angular’s router will manage the subscriptions for you, so this makes it a little bit easier and cleaner for us on the component class.
     this.videoId$.subscribe((param) => {
       this.videoId = param;
     });

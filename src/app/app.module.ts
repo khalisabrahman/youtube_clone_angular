@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { SearchFeedModule } from './searchFeed/searchFeed.module';
 import { VideosModule } from './videos/videos.module';
 import { VideoDetailModule } from './videoDetail/videoDetail.module';
+import { FeedModule } from './feed/feed.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { VideoDetailModule } from './videoDetail/videoDetail.module';
     HttpClientModule,
     TopBarModule,
     SearchFeedModule,
+    FeedModule,
     BrowserAnimationsModule,
     VideoDetailModule,
     StoreModule.forRoot({router: routerReducer}),
