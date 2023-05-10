@@ -1,4 +1,4 @@
-<div *ngFor="let category of categories" (click)="handleClick(category.name)">
+<div *ngFor="let category of categories" (click)="handleClick(category.name)" style="display: flex">
     <mat-icon >{{category.icon}}</mat-icon>
-    <p>{{category.name}}</p>
+    <p [ngStyle]="{'color': selectedCategoryProps === category.name ? 'red' : 'blue'}">{{category.name}}</p>
 </div>

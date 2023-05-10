@@ -18,9 +18,10 @@ export const getFeedResultsReducer = createReducer(
   initialState,
   on(
     getFeedAction,
-    (state): FeedStateInterface => ({
+    (state, action): FeedStateInterface => ({
       ...state,
       isLoading: true,
+      selectedCategory: action.selectedCategory
     })
   ),
   on(

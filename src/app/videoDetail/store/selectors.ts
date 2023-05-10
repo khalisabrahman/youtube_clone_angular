@@ -22,4 +22,9 @@ export const searchRelatedResultSelector = createSelector(
   (searchFeedState: SearchRelatedFeedStateInterface) => searchFeedState.data
 );
 
+export const videoStatisticsSelector = createSelector(
+  searchRelatedFeedFeatureSelector,
+  (searchFeedState: SearchRelatedFeedStateInterface) => searchFeedState.statistics
+);
+
 

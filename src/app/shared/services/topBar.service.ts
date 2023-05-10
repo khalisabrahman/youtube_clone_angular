@@ -19,7 +19,7 @@ export class TopBarService {
         params: {
           q: searchTerm,
           part: 'snippet',
-          regionCode: 'US',
+          regionCode: 'SG',
           maxResults: '50',
           order: 'date',
         },

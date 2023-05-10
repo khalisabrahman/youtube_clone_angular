@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { getFeedAction } from '../store/actions/getFeed.action';
-import { searchResultSelector } from '../store/selectors';
+import { searchResultSelector, selectedCategorySelector } from '../store/selectors';
 
 @Component({
   selector: 'yt-feed',
@@ -11,7 +11,8 @@ import { searchResultSelector } from '../store/selectors';
 })
 export class FeedComponent implements OnInit {
   selectedCategory: string = 'New';
-  data$: Observable<any>
+  data$: Observable<any>;
+  selectedCategory$: Observable<string>;
 
   constructor(private store: Store) {}
 
@@ -25,5 +26,6 @@ export class FeedComponent implements OnInit {
 
   initializeValues() {
     this.data$ = this.store.pipe(select(searchResultSelector));
+    this.selectedCategory$ = this.store.pipe(select(selectedCategorySelector))
   }
 }

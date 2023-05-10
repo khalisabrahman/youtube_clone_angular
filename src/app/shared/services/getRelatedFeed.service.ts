@@ -19,7 +19,7 @@ export class GetRelatedFeedService {
         params: {
           relatedToVideoId: videoId,
           part: 'snippet',
-          regionCode: 'US',
+          regionCode: 'SG',
           maxResults: '50',
           type: 'video',
         },

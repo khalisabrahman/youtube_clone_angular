@@ -3,25 +3,23 @@ import { Injectable } from '@angular/core';
 import { map, Observable, tap } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import { SearchResponseInterface } from 'src/app/searchFeed/types/searchResponse.interface';
+import { VideoResponseInterface } from 'src/app/videoDetail/store/types/videoStatisticsResponse.interface';
 
 const API_URL = environment.API_URL;
 const API_KEY = environment.API_KEY;
 const API_HOST = environment.API_HOST;
 
 @Injectable()
-export class GetFeedService {
+export class GetVideoStatisticService {
   constructor(private http: HttpClient) {}
 
-  getFeedResults(selectedCategory: string): Observable<SearchResponseInterface> {
+  getVideoStatistics(videoId: string): Observable<VideoResponseInterface> {
     return this.http
-      .get<SearchResponseInterface>(`${API_URL}/search`, {
+      .get<VideoResponseInterface>(`${API_URL}/videos`, {
         params: {
-          q: selectedCategory,
-          part: 'snippet',
-          regionCode: 'SG',
+          id: videoId,
+          part: 'snippet, statistics',
           maxResults: '50',
-        //   order: 'date',
         },
         headers: {
           'x-rapidapi-host': API_HOST,

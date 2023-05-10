@@ -1,4 +1,6 @@
-<yt-sidebar></yt-sidebar>
-<div *ngIf="data$ | async as data">
+<div style="background-color: pink; display: flex">
+  <yt-sidebar [selectedCategory]="selectedCategory$ | async"></yt-sidebar>
+  <div *ngIf="data$ | async as data">
     <yt-videos [videos]="data"></yt-videos>
+  </div>
 </div>

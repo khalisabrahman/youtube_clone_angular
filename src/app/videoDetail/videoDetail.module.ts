@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { GetRelatedFeedService } from '../shared/services/getRelatedFeed.service';
+import { GetVideoStatisticService } from '../shared/services/getVideoStatistics.service';
 
 import { VideosModule } from '../videos/videos.module';
 import { YoutubePlayerModule } from '../youtubePlayer/youtubePlayer.module';
@@ -29,6 +30,6 @@ const routes = [
   ],
   declarations: [VideoDetailComponent],
   exports: [VideoDetailComponent],
-  providers: [GetRelatedFeedService]
+  providers: [GetRelatedFeedService, GetVideoStatisticService]
 })
 export class VideoDetailModule {}

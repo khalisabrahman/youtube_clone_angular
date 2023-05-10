@@ -22,4 +22,8 @@ export const searchResultSelector = createSelector(
   (searchFeedState: FeedStateInterface) => searchFeedState.data
 );
 
+export const selectedCategorySelector = createSelector(
+  searchFeedFeatureSelector,
+  (searchFeedState: FeedStateInterface) => searchFeedState.selectedCategory
+);
 

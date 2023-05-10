@@ -6,6 +6,8 @@ import {
   getRelatedSearchFeedSuccessAction,
 } from '../actions/getRelatedSearchFeed.action';
 import { switchMap, map, tap } from 'rxjs';
+import { getVideoStatisticsAction, getVideoStatisticsSuccessAction } from '../actions/getVideoStatistics.action';
+import { GetVideoStatisticService } from 'src/app/shared/services/getVideoStatistics.service';
 
 @Injectable()
 export class GetRelatedSearchResultsEffect {
@@ -14,7 +16,6 @@ export class GetRelatedSearchResultsEffect {
       ofType(getRelatedSearchFeedAction),
       switchMap(({ videoId }) => {
         return this.getRelatedFeedService.getRelatedFeedResults(videoId).pipe(
-          tap((res) => console.log(res)),
           map((response) => {
             return getRelatedSearchFeedSuccessAction({ res: response });
           })
@@ -23,8 +24,22 @@ export class GetRelatedSearchResultsEffect {
     )
   );
 
+  getVideoStatisticsResults$ = createEffect(() =>
+    this.action$.pipe(
+      ofType(getVideoStatisticsAction),
+      switchMap(({ videoId }) => {
+        return this.videoStatisticsService.getVideoStatistics(videoId).pipe(
+          map((response) => {
+            return getVideoStatisticsSuccessAction({ res: response });
+          })
+        );
+      })
+    )
+  );
+
   constructor(
     private action$: Actions,
-    private getRelatedFeedService: GetRelatedFeedService
+    private getRelatedFeedService: GetRelatedFeedService,
+    private videoStatisticsService: GetVideoStatisticService
   ) {}
 }

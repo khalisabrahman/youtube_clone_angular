@@ -1,5 +1,14 @@
-<div>
-  <yt-player></yt-player>
+<div style="display: flex">
+  <div>
+    <yt-player></yt-player>
+    <div *ngIf="videoDetails$ | async as videoDetails">
+      <h4>{{ videoDetails.snippet.title }}</h4>
+      <p>{{ videoDetails.snippet.channelTitle }}</p>
+      <p>{{ videoDetails.statistics.viewCount }} views</p>
+      <p>{{ videoDetails.statistics.likeCount }} likes</p>
+    </div>
+  </div>
+
   <div *ngIf="videos$ | async as videos">
     <yt-videos [videos]="videos"></yt-videos>
   </div>

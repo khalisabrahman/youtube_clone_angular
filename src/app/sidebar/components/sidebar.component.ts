@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getFeedAction } from 'src/app/feed/store/actions/getFeed.action';
 
@@ -8,6 +8,8 @@ import { getFeedAction } from 'src/app/feed/store/actions/getFeed.action';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  @Input('selectedCategory') selectedCategoryProps: string;
+  
   categories = [
     { name: 'New', icon: 'home' },
     { name: 'Coding', icon: 'code' },
