@@ -1,9 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { GetRelatedFeedService } from '../shared/services/getRelatedFeed.service';
 
+import { VideosModule } from '../videos/videos.module';
 import { YoutubePlayerModule } from '../youtubePlayer/youtubePlayer.module';
 import { VideoDetailComponent } from './components/videoDetail.component';
+import { getRelatedResultsReducer } from './store/actions/reducers';
+import { GetRelatedSearchResultsEffect } from './store/effects/getRelatedSearchResults.effect';
 
 const routes = [
   {
@@ -11,9 +17,18 @@ const routes = [
     component: VideoDetailComponent,
   },
 ];
+
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes), YoutubePlayerModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    StoreModule.forFeature('getRelatedFeeds', getRelatedResultsReducer),
+    EffectsModule.forFeature([GetRelatedSearchResultsEffect]),
+    YoutubePlayerModule,
+    VideosModule,
+  ],
   declarations: [VideoDetailComponent],
   exports: [VideoDetailComponent],
+  providers: [GetRelatedFeedService]
 })
 export class VideoDetailModule {}

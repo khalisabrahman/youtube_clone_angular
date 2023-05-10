@@ -1,1 +1,4 @@
-<h1>Sidebar</h1>
+<div *ngFor="let category of categories" (click)="handleClick(category.name)">
+    <mat-icon >{{category.icon}}</mat-icon>
+    <p>{{category.name}}</p>
+</div>

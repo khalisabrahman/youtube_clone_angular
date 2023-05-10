@@ -1,1 +1,6 @@
-<yt-player></yt-player>
+<div>
+  <yt-player></yt-player>
+  <div *ngIf="videos$ | async as videos">
+    <yt-videos [videos]="videos"></yt-videos>
+  </div>
+</div>
