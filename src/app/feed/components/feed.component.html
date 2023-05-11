@@ -1,6 +1,14 @@
-<div style="background-color: pink; display: flex">
-  <yt-sidebar [selectedCategory]="selectedCategory$ | async"></yt-sidebar>
-  <div *ngIf="data$ | async as data">
+<div class="container" *ngIf="selectedCategory$ | async as selectedCategory">
+  <yt-sidebar
+    class="sidebar"
+    [selectedCategory]="selectedCategory"
+  ></yt-sidebar>
+  <mat-divider class="divider"></mat-divider>
+  <div class="videos" *ngIf="data$ | async as data">
+    <div class="category-title">
+      <span style="color: 'white'">{{ selectedCategory }} </span
+      ><span style="color: '#F31503'">Videos</span>
+    </div>
     <yt-videos [videos]="data"></yt-videos>
   </div>
 </div>

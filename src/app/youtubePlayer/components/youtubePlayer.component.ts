@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, map } from 'rxjs';
 
@@ -6,12 +12,30 @@ import { Observable, map } from 'rxjs';
   selector: 'yt-player',
   templateUrl: './youtubePlayer.component.html',
 })
-export class YoutubePlayerComponent implements OnInit {
+export class YoutubePlayerComponent implements OnInit, AfterViewInit {
+  @ViewChild('youTubePlayer') youTubePlayer: ElementRef<HTMLDivElement>;
+
+  videoHeight: number | undefined;
+  videoWidth: number | undefined;
   apiLoaded = false;
   videoId$: Observable<string>;
   videoId: string;
+  changeDetectorRef: any;
 
   constructor(private route: ActivatedRoute) {}
+
+  ngAfterViewInit(): void {
+    this.onResize();
+    window.addEventListener('resize', this.onResize.bind(this));
+  }
+
+  onResize(): void {
+    // you can remove this line if you want to have wider video player than 1200px
+    (this.videoWidth = this.youTubePlayer.nativeElement.clientWidth),
+      // so you keep the ratio
+      (this.videoHeight = this.videoWidth * 0.6);
+    this.changeDetectorRef.detectChanges();
+  }
 
   ngOnInit() {
     this.loadYoutubeAPI();

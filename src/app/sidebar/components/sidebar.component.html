@@ -1,4 +1,23 @@
-<div *ngFor="let category of categories" (click)="handleClick(category.name)" style="display: flex">
-    <mat-icon >{{category.icon}}</mat-icon>
-    <p [ngStyle]="{'color': selectedCategoryProps === category.name ? 'red' : 'blue'}">{{category.name}}</p>
-</div>
+<button
+  *ngFor="let category of categories"
+  class="category-btn"
+  (click)="handleClick(category.name)"
+  [ngStyle]="{
+    background: selectedCategoryProps === category.name ? '#FC1503' : 'black'
+  }"
+>
+  <mat-icon
+    class="icon"
+    [ngStyle]="{
+      color: selectedCategoryProps === category.name ? 'red' : 'white'
+    }"
+    >{{ category.icon }}</mat-icon
+  >
+  <span
+    [ngStyle]="{
+      opacity: selectedCategoryProps === category.name ? '1' : '0.8'
+    }"
+  >
+    {{ category.name }}
+  </span>
+</button>

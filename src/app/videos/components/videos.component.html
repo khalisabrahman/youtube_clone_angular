@@ -1,4 +1,4 @@
-<div *ngIf="videosProp.length; else noData" >
+<div *ngIf="videosProp.length; else noData" class="videos-container">
   <div *ngFor="let video of videosProp">
     <yt-video [video]="video"></yt-video>
   </div>

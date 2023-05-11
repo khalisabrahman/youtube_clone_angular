@@ -1,0 +1,25 @@
+a {
+    text-decoration: none;
+}
+
+.mat-card-size {
+  background: #1e1e1e;
+}
+
+.mat-card-img {
+    // width: 100%;
+    height: auto;
+    aspect-ratio: attr(width) / attr(height);
+}
+
+.video-title {
+    font-weight: 700; 
+    color: #FFF;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 375px) {
+  .mat-card-size {
+    width: 310px;
+  }
+}

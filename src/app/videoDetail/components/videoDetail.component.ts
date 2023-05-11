@@ -16,11 +16,12 @@ import { VideoStatisticsInterface } from '../store/types/videoStatistics.interfa
   templateUrl: './videoDetail.component.html',
   styleUrls: ['./videoDetail.component.scss'],
 })
-export class VideoDetailComponent implements OnInit {
+export class VideoDetailComponent implements OnInit  {
   videos$: Observable<any[]>;
   isLoading$: Observable<boolean>;
   videoId: string;
   videoDetails$: Observable<VideoStatisticsInterface>;
+  changeDetectorRef: any;
 
   constructor(private store: Store, private route: ActivatedRoute) {}
 

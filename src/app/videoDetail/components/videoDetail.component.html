@@ -1,15 +1,17 @@
-<div style="display: flex">
-  <div>
+<div class="container">
+  <div class="fixed">
     <yt-player></yt-player>
     <div *ngIf="videoDetails$ | async as videoDetails">
-      <h4>{{ videoDetails.snippet.title }}</h4>
-      <p>{{ videoDetails.snippet.channelTitle }}</p>
-      <p>{{ videoDetails.statistics.viewCount }} views</p>
-      <p>{{ videoDetails.statistics.likeCount }} likes</p>
+      <h3 class="video-title">{{ videoDetails.snippet.title }}</h3>
+      <p class="video-channel-title">{{ videoDetails.snippet.channelTitle }}</p>
+      <div class="video-statistics">
+        <p>{{ videoDetails.statistics.viewCount }} views</p>
+        <p>{{ videoDetails.statistics.likeCount }} likes</p>
+      </div>
     </div>
   </div>
 
-  <div *ngIf="videos$ | async as videos">
+  <div *ngIf="videos$ | async as videos" class="scrollable">
     <yt-videos [videos]="videos"></yt-videos>
   </div>
 </div>

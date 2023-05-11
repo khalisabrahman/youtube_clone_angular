@@ -1,0 +1,50 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "sidebar"
+    "divider"
+    "videos";
+  background-color: #000;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  display: flex;
+  height: auto;
+  overflow: auto;
+  padding: 0px 16px;
+}
+
+.divider {
+  grid-area: divider;
+  border-color: white;
+  opacity: 0.5
+}
+
+.videos {
+  grid-area: videos;
+  padding:16px;
+}
+
+.category-title {
+  margin-bottom: 16px;
+}
+
+.videos span {
+  margin-bottom: 16px;
+  font-size: 2.125rem;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 900px) {
+  .container {
+    grid-template-areas:
+    "sidebar divider videos";
+    grid-template-columns: 232px auto;
+  }
+
+  .sidebar {
+    flex-direction: column;
+    overflow: inherit;
+  }
+}
