@@ -19,4 +19,8 @@ export class VideoCardComponent implements OnInit {
   ngOnInit(): void {
   
   }
+
+  handleClick() {
+    window.scroll(0,0);
+  }
 }

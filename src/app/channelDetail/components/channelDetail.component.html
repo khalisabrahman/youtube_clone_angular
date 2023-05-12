@@ -1,0 +1,19 @@
+<div style="background: black;">
+  <div
+    style="
+      background: linear-gradient(
+        90deg,
+        rgba(0, 238, 247, 1) 0%,
+        rgba(206, 3, 184, 1) 100%,
+        rgba(0, 212, 255, 1) 100%
+      );
+      z-index: 10;
+      height: '300px';
+    "
+  ></div>
+  <yt-channelCard
+    [channelDetail]="channelDetails$ | async"
+    style="display: flex; justify-content: center; margin-top: -184px"
+  ></yt-channelCard>
+  <yt-videos [videos]="videos$ | async"></yt-videos>
+</div>

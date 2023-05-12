@@ -1,5 +1,5 @@
 
-  <a [routerLink]="['/videoDetail', videoProps.id.videoId]">
+  <a [routerLink]="['/videoDetail', videoProps.id.videoId]" (click)="handleClick()">
     <mat-card  class="mat-card-size">
       <img class="mat-card-img" mat-card-image src={{videoProps.snippet.thumbnails.high.url}} alt="" height="180" width="430" >
       <mat-card-content>

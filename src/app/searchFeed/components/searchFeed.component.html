@@ -1,5 +1,8 @@
-
-<h4 *ngIf="searchTerm$ | async as searchTerm">Search results for:{{ searchTerm }}</h4>
-<div *ngIf="data$ | async as data">
+<div class="container">
+  <h1 *ngIf="searchTerm$ | async as searchTerm" class="search">
+    Search results for: <span>{{ searchTerm }}</span>
+  </h1>
+  <div *ngIf="data$ | async as data">
     <yt-videos [videos]="data"></yt-videos>
+  </div>
 </div>

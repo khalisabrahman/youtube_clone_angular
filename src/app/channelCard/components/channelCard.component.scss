@@ -1,0 +1,34 @@
+a {
+    text-decoration: none;
+}
+
+.mat-card-size {
+  background: transparent;
+  box-shadow: none;
+}
+
+.mat-card-img {
+    // width: 100%;
+    height: auto;
+    aspect-ratio: attr(width) / attr(height);
+    border-radius: 50%;
+}
+
+.mat-card-image:first-child {
+    margin-top: -16px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.channel-title {
+    font-weight: 700; 
+    color: #FFF;
+    text-decoration: none;
+    text-align: center
+}
+
+@media screen and (min-width: 375px) {
+  .mat-card-size {
+    width: 310px;
+  }
+}

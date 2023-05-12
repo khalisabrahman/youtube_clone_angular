@@ -21,7 +21,6 @@ export class VideoDetailComponent implements OnInit  {
   isLoading$: Observable<boolean>;
   videoId: string;
   videoDetails$: Observable<VideoStatisticsInterface>;
-  changeDetectorRef: any;
 
   constructor(private store: Store, private route: ActivatedRoute) {}
 

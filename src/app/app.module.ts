@@ -17,6 +17,7 @@ import { SearchFeedModule } from './searchFeed/searchFeed.module';
 import { VideosModule } from './videos/videos.module';
 import { VideoDetailModule } from './videoDetail/videoDetail.module';
 import { FeedModule } from './feed/feed.module';
+import { ChannelDetailModule } from './channelDetail/channelDetail.module';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { FeedModule } from './feed/feed.module';
     FeedModule,
     BrowserAnimationsModule,
     VideoDetailModule,
+    ChannelDetailModule,
     StoreModule.forRoot({router: routerReducer}),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
